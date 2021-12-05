@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="mt-5">
+    {% for evaluation in evaluations %}
+    <div class="row">
+        {% if evaluation['type'] == 2 %}
+            <h6 class="advice">{{evaluation['rule']}}</h6>
+        {% else %}
+            <h6 {% if evaluation['status'] == False %} class="rule-followed" {% else %} class="rule-notfollowed" {% endif %} >Rule:&emsp;{{evaluation['rule']}}</h6>
+            {% if evaluation['status'] == False %}
+                {% for warning in evaluation['warnings'] %}
+                   <h6 class="rule-warning">{{warning}}</h6>
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+    </div>
+    <hr>
+    {% endfor %}    
+</div>
+<h1 class="text-danger">{{error}}</h1>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .rule-followed {
+        color: red;
+    }
+    .rule-notfollowed {
+        color: green;
+    }
+    .rule-warning {
+        color: orange
+    }
+    .advice {
+        color: blue
+    }
+    
+</style>
+{% endblock %}
