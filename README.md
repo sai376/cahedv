@@ -1,5 +1,7 @@
 # CAHEDV
-Computer-Assisted Heuristic Evaluation of Data Visualization - Flask App
+Computer-Assisted Heuristic Evaluation of Data Visualization - Flask Application
+This project is completed under the guidance of Dr. Ying Zhu.
+
 
 ## SETUP
 
